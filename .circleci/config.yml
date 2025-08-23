@@ -1,0 +1,10 @@
+version: 2.1
+
+orbs:
+  snyk: snyk/snyk@2.3.0
+  codecov: codecov/codecov@5
+workflows:
+  upload-to-codecov:
+    jobs:
+      - checkout
+      - codecov/upload

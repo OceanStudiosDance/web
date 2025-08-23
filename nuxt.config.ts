@@ -49,9 +49,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     turnstile: {
-      // This can be overridden at runtime via the NUXT_TURNSTILE_SECRET_KEY
-      // environment variable.
-      secretKey: "${NUXT_TURNSTILE_SECRET_KEY}",
+      secretKey: "",
     },
   },
   robots: {
