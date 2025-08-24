@@ -1,17 +1,25 @@
 <template>
-  <Transition name="fade">
-    <div
-      v-if="modelValue"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
-      @click.self="close"
-    >
-      <Transition name="slide-up">
+  <div v-if="mounted">
+    <!-- Overlay fade + scale + shadow -->
+    <Transition name="overlay">
+      <div
+        v-show="modelValue"
+        class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm shadow-lg"
+        @click.self="close"
+      />
+    </Transition>
+
+    <!-- Modal springy slide + shadow pop -->
+    <Transition name="modal">
+      <div
+        v-show="modelValue"
+        ref="modalRef"
+        class="fixed inset-0 z-50 flex items-center justify-center p-6"
+        role="dialog"
+        aria-modal="true"
+      >
         <div
-          v-if="modelValue"
-          ref="modalRef"
-          class="bg-white rounded-2xl shadow-xl p-6 max-w-md w-[90%] text-center"
-          role="dialog"
-          aria-modal="true"
+          class="bg-white rounded-2xl shadow-2xl max-w-md w-full text-center p-6 transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
         >
           <h2 class="text-xl font-semibold text-gray-900">
             You’re leaving Ocean Studios
@@ -19,7 +27,8 @@
           <p class="mt-3 text-gray-600 text-sm">
             You are about to surf to an Ocean Studios partner site:
             <span class="font-medium text-gray-800">{{ site }}</span
-            >. <br />Do you want to continue?
+            >.<br />
+            Do you want to continue?
           </p>
 
           <div class="mt-6 flex gap-4 justify-center">
@@ -41,13 +50,13 @@
             </a>
           </div>
         </div>
-      </Transition>
-    </div>
-  </Transition>
+      </div>
+    </Transition>
+  </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
+import { ref, onMounted, onBeforeUnmount, nextTick, watch } from "vue";
 
 const props = defineProps({
   modelValue: { type: Boolean, required: true },
@@ -59,16 +68,14 @@ const emit = defineEmits(["update:modelValue"]);
 
 const modalRef = ref(null);
 const cancelBtn = ref(null);
+const mounted = ref(false);
 
 const close = () => emit("update:modelValue", false);
 
 const handleKey = (e) => {
-  if (e.key === "Escape" && props.modelValue) {
-    close();
-  }
+  if (e.key === "Escape" && props.modelValue) close();
 };
 
-// Trap focus inside modal
 const handleFocus = (e) => {
   if (
     props.modelValue &&
@@ -81,45 +88,91 @@ const handleFocus = (e) => {
 };
 
 onMounted(() => {
+  mounted.value = true;
   document.addEventListener("keydown", handleKey);
   document.addEventListener("focusin", handleFocus);
 });
+
 onBeforeUnmount(() => {
   document.removeEventListener("keydown", handleKey);
   document.removeEventListener("focusin", handleFocus);
 });
 
-// Autofocus cancel on open
 watch(
   () => props.modelValue,
   async (val) => {
-    if (val) {
-      await nextTick();
-      cancelBtn.value?.focus();
-    }
+    if (val) (await nextTick(), cancelBtn.value?.focus());
   }
 );
 </script>
 
 <style scoped>
-/* Fade bg */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
+/* Overlay fade + scale + subtle shadow */
+.overlay-enter-active {
+  animation: overlay-in 0.35s ease forwards;
 }
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+.overlay-leave-active {
+  animation: overlay-out 0.25s ease forwards;
+}
+@keyframes overlay-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
+@keyframes overlay-out {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
 }
 
-/* Slide-up transition */
-.slide-up-enter-active,
-.slide-up-leave-active {
-  transition: all 0.3s ease;
+/* Modal springy slide + shadow pop */
+.modal-enter-active {
+  animation: modal-in 0.55s cubic-bezier(0.22, 1.61, 0.36, 1) forwards;
 }
-.slide-up-enter-from,
-.slide-up-leave-to {
-  opacity: 0;
-  transform: translateY(20px);
+.modal-leave-active {
+  animation: modal-out 0.25s ease forwards;
+}
+@keyframes modal-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+}
+@keyframes modal-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
 }
 </style>

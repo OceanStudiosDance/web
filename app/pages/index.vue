@@ -46,7 +46,7 @@
           class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
         >
           <button
-            @click="showModal = true"
+            @click="openModal"
             class="flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-sky-900/70 text-white text-base font-medium hover:bg-sky-900 transition"
           >
             Join Today
@@ -65,6 +65,12 @@
               />
             </svg>
           </button>
+
+          <ConfirmLeaveModal
+            v-model="showModal"
+            href="https://discord.gg/ku8EBkTKAv"
+            site="Discord.com"
+          />
 
           <NuxtLink
             to="/learn-more"
@@ -103,44 +109,15 @@
       </h1>
       <sub class="text-sm text-white">Stay tuned for updates!</sub>
     </div>
-
-    <!-- Visual Modal -->
-    <div
-      v-if="showModal"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
-    >
-      <div
-        class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-w-sm w-full"
-      >
-        <h2 class="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
-          Leaving Site
-        </h2>
-        <p class="text-gray-600 dark:text-gray-300 mb-6">
-          You are about to leave our site. Continue to Google?
-        </p>
-        <div class="flex justify-end gap-4">
-          <button
-            @click="showModal = false"
-            class="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
-          >
-            Cancel
-          </button>
-          <a
-            href="https://google.com"
-            target="_blank"
-            class="px-4 py-2 rounded bg-sky-600 text-white hover:bg-sky-700 transition"
-          >
-            Continue
-          </a>
-        </div>
-      </div>
-    </div>
   </section>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import ThemeToggle from "~/components/ThemeToggle.vue";
-
+import ConfirmLeaveModal from "~/components/ConfirmLeaveModal.vue";
 const showModal = ref(false);
+const openModal = () => {
+  showModal.value = true;
+};
 </script>
