@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     "@nuxtjs/turnstile",
     "@nuxtjs/robots",
     "@teages/nuxt-legacy",
+    "nuxt-auth-utils",
   ],
 
   sentry: {

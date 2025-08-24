@@ -1,14 +1,32 @@
-<template>
-  <NuxtTurnstile ref="turnstile" />
-  <button @click="turnstile.reset()">Reset token in template</button>
-  <button @click="reset()">Reset token from handler</button>
-</template>
-
 <script setup>
-// you can call this template ref anything
-const turnstile = ref();
-
-function reset() {
-  turnstile.value?.reset();
-}
+useHead({
+  link: [
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap",
+    },
+  ],
+  script: [
+    {
+      children: `
+        if (
+          localStorage.theme === 'dark' ||
+          (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      `,
+    },
+  ],
+});
 </script>
+
+<template>
+  <head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+
+  <NuxtPage />
+</template>
