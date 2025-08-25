@@ -21,6 +21,8 @@ export default defineNuxtConfig({
     "@teages/nuxt-legacy",
     "nuxt-auth-utils",
     "@nuxtjs/color-mode",
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-fonts",
   ],
 
   sentry: {
