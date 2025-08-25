@@ -1,13 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import tailwindcss from "@tailwindcss/vite";
-
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  vite: { plugins: [tailwindcss()] },
   css: ["~/assets/css/main.css"],
-
+  vite: { plugins: [tailwindcss()] },
   modules: [
     "@sentry/nuxt/module",
     "@nuxt/content",
@@ -15,13 +13,11 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/scripts",
     "@nuxt/ui",
-    "shadcn-nuxt",
     "@nuxtjs/turnstile",
     "@nuxtjs/robots",
     "@teages/nuxt-legacy",
     "nuxt-auth-utils",
     "@nuxtjs/color-mode",
-    "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
   ],
 
@@ -37,17 +33,7 @@ export default defineNuxtConfig({
   sourcemap: {
     client: "hidden",
   },
-  shadcn: {
-    /**
-     * Prefix for all the imported component
-     */
-    prefix: "",
-    /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
-     */
-    componentDir: "./components/ui",
-  },
+
   turnstile: {
     siteKey: "0x4AAAAAABuWsLIUcF8VnRUK",
   },
@@ -62,5 +48,10 @@ export default defineNuxtConfig({
   },
   legacy: {
     vite: {},
+  },
+  googleFonts: {
+    families: {
+      Ubuntu: true, // Load Ubuntu font from Google Fonts
+    },
   },
 });

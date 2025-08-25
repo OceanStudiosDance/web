@@ -232,7 +232,7 @@
             class="text-xl md:text-2xl text-slate-600 dark:text-gray-300 mb-12 transition-all duration-1000 ease-out"
             :style="section2TextStyles"
           >
-            Chart your course through our maritime features and discover new
+            Chart your course through our maritime classes and discover new
             horizons.
           </p>
 
@@ -345,21 +345,21 @@ const windowHeight = ref(0);
 const features = [
   {
     icon: "🌊",
-    title: "Tidal Design",
+    title: "Tidal Sets",
     description:
-      "Our designs ebb and flow with perfect rhythm, adapting beautifully to every device like ocean tides.",
+      "Our instructors are seasoned sailors, ready to guide you through every wave. Their building expertise ensures your total immersion in classes.",
   },
   {
     icon: "⚡",
     title: "Lightning Fast",
     description:
-      "Performance that cuts through the water like a racing yacht, delivering content at incredible speeds.",
+      "Our cutting-edge systems ensure your rank-ups and class info are posted immediately, keeping you ahead of the tide.",
   },
   {
     icon: "🧭",
     title: "Navigate Freely",
     description:
-      "Chart your creative course with our comprehensive suite of design and development tools.",
+      "We host a wide variety of classes, from beginner to advanced among many styles, so you can chart your own course.",
   },
 ];
 
@@ -382,7 +382,7 @@ const handleScroll = (event) => {
 
 const scrollProgress = computed(() => {
   if (!windowHeight.value) return 0;
-  return Math.min(scrollY.value / (windowHeight.value * 2), 1);
+  return Math.min(scrollY.value / (windowHeight.value * 1.5), 1);
 });
 
 // Enhanced nautical-themed animations
@@ -471,14 +471,15 @@ const getFeatureStyles = (index) => {
   };
 };
 
+// Section 3 animations
 const section3Progress = computed(() => {
-  const start = windowHeight.value * 1.5;
-  const end = windowHeight.value * 2.5;
+  const start = windowHeight.value * 1.2;
+  const end = windowHeight.value * 2.2;
   return Math.max(0, Math.min(1, (scrollY.value - start) / (end - start)));
 });
 
 const section3Styles = computed(() => ({
-  transform: `translateY(${Math.max(0, (scrollY.value - windowHeight.value * 2) * 0.2)}px)`,
+  transform: `translateY(${Math.max(0, (scrollY.value - windowHeight.value * 1.5) * 0.2)}px)`,
 }));
 
 const section3TitleStyles = computed(() => ({
@@ -493,7 +494,7 @@ const section3TextStyles = computed(() => ({
 
 const section3ButtonStyles = computed(() => ({
   transform: `translateY(${Math.max(0, 20 - section3Progress.value * 20)}px) scale(${0.95 + section3Progress.value * 0.05})`,
-  opacity: Math.max(0, section3Progress.value - 0.3),
+  opacity: Math.max(0, section3Progress.value - 0.1),
 }));
 
 onMounted(() => {

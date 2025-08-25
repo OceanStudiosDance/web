@@ -27,6 +27,7 @@ useHead({
 <template>
   <head>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>Ocean Studios || Original Roblox ALDC</title>
   </head>
   <div>
     <NuxtLoadingIndicator />
