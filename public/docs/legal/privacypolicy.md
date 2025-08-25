@@ -1,4 +1,4 @@
-# Ocean Studios Dance Academy, INC. Privacy Policy.
+# Ocean Studios Dance Academy, INC. Privacy Policy
 
 Last updated: 25/08/25
 
@@ -65,7 +65,7 @@ Information that you directly submit to us through our Services may include:
 - Communicating with you. We use your personal information to provide you with customer support and improve our Services. This is in our legitimate
   interests in order to be responsive to you, to provide effective services to you, and to maintain our business relationship with you.
 
-# Cookies
+## Cookies
 
 Like many websites, we use Cookies on our Site. We use Cookies to power and improve our Site and our Services (including to remember your actions and
 preferences), to run analytics and better understand user interaction with the Services (in our legitimate interests to administer, improve and optimize
@@ -101,7 +101,7 @@ circumstances may include:
 - Affiliates
   We do not use or disclose sensitive personal information for the purposes of inferring characteristics about you.
 
-# User Generated Content
+## User Generated Content
 
 The Services may enable you to post product reviews and other user-generated content. If you choose to submit user generated content to any public
 area of the Services, this content will be public and accessible by anyone.
@@ -109,7 +109,7 @@ We do not control who will have access to the information that you choose to mak
 to such information will respect your privacy or keep it secure. We are not responsible for the privacy or security of any information that you make
 publicly available, or for the accuracy, use or misuse of any information that you disclose or receive from third parties.
 
-# Third Party Websites and Links
+## Third Party Websites and Links
 
 Our Site may provide links to websites or other online platforms operated by third parties. If you follow links to sites not affiliated or controlled by us,
 you should review their privacy and security policies and other terms and conditions. We do not guarantee and are not responsible for the privacy or
@@ -118,7 +118,7 @@ public venues, including information you share on third-party social networking 
 users of those third-party platforms without limitation as to its use by us or by a third party. Our inclusion of such links does not, by itself, imply any
 endorsement of the content on such platforms or of their owners or operators, except as disclosed on the Services.
 
-# Children's Data
+## Children's Data
 
 The Services are not intended to be used by children, and we do not knowingly collect any personal information about children. If you are the parent or
 guardian of a child who has provided us with their personal information, you may contact us using the contact details set out below to request that it be
@@ -126,7 +126,7 @@ deleted.
 As of the Effective Date of this Privacy Policy, we do not have actual knowledge that we "share" or "sell" (as those terms are defined in applicable law)
 personal information of individuals under 16 years of age.
 
-# Security and Retention of Your Information
+## Security and Retention of Your Information
 
 Please be aware that no security measures are perfect or impenetrable, and we cannot guarantee "perfect security." In addition, any information you
 send to us may not be secure while in transit. We recommend that you do not use unsecure channels to communicate sensitive or confidential
