@@ -1,4 +1,5 @@
 <script setup>
+import { Analytics } from "@vercel/analytics/nuxt";
 useHead({
   link: [
     {
@@ -22,11 +23,13 @@ useHead({
   ],
 });
 </script>
-
+<Analytics />
 <template>
   <head>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
-
-  <NuxtPage />
+  <div>
+    <NuxtLoadingIndicator />
+    <NuxtPage />
+  </div>
 </template>

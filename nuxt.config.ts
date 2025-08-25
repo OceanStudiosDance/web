@@ -20,6 +20,7 @@ export default defineNuxtConfig({
     "@nuxtjs/robots",
     "@teages/nuxt-legacy",
     "nuxt-auth-utils",
+    "@nuxtjs/color-mode",
   ],
 
   sentry: {
