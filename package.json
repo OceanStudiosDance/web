@@ -19,6 +19,7 @@
     "@nuxt/scripts": "0.11.13",
     "@nuxt/ui": "3.3.2",
     "@nuxtjs/color-mode": "^3.5.2",
+    "@nuxtjs/mdc": "^0.17.2",
     "@nuxtjs/composition-api": "^0.34.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/robots": "^5.5.0",
@@ -41,11 +42,9 @@
     "nuxt-cloudflare-analytics": "1.0.8",
     "tailwindcss": "^4.1.12",
     "typescript": "^5.6.3",
+    "@vercel/nft": "^0.29.2",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
-  },
-  "overrides": {
-    "@vercel/nft": "^0.27.4"
   },
   "devDependencies": {
     "@nuxt/test-utils": "^3.19.2",
