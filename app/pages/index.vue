@@ -326,7 +326,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
-import ConfirmLeaveModal from "~/components/ConfirmLeaveModal.vue";
+import ConfirmLeaveModal from "../components/ConfirmLeaveModal.vue";
 
 useHead({
   htmlAttrs: {
