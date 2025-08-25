@@ -317,7 +317,14 @@
           <div class="text-slate-300 text-sm font-medium mb-2 sm:mb-0">
             🌊 We're Building Something Amazing
           </div>
-          <div class="text-slate-400 text-xs">Stay tuned for updates! ⚓</div>
+          <div class="text-slate-500 text-xs">
+            <a href="/docs/legal/privacypolicy" class="mr-2">Privacy Policy</a>
+            |
+            <a href="/docs/legal/termsofservice" class="mr-2"
+              >Terms of Service</a
+            >
+          </div>
+          <div class="text-slate-300 text-xs">Stay tuned for updates! ⚓</div>
         </div>
       </div>
     </footer>
@@ -326,7 +333,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
-import ConfirmLeaveModal from "~/components/ConfirmLeaveModal.vue";
+import ConfirmLeaveModal from "../components/ConfirmLeaveModal.vue";
 
 useHead({
   htmlAttrs: {
