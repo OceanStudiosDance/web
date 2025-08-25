@@ -10,11 +10,17 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Bun
+          command: |
+            curl -fsSL https://bun.sh/install | bash
+            echo 'export PATH="$HOME/.bun/bin:$PATH"' >> $BASH_ENV
+            source $BASH_ENV
+      - run:
           name: Install dependencies
-          command: npm install
+          command: bun install
       - run:
           name: Run tests and collect coverage
-          command: npm run test
+          command: bun run test
       - codecov/upload
 
 workflow:
