@@ -23,7 +23,7 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/mdc": "^0.17.2",
     "@nuxtjs/robots": "^5.5.0",
-    "@nuxtjs/turnstile": "1.0.0",
+    "@nuxtjs/turnstile": "1.1.1",
     "@sentry/nuxt": "^10",
     "@tailwindcss/postcss": "^4.1.12",
     "@tailwindcss/vite": "^4.1.12",
